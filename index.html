@@ -61,10 +61,19 @@
 
         /* Estilos para el video */
         #videoContainer {
-            display: none; /* Ocultar el contenedor de video por defecto */
-            position: relative;
-            margin-top: 20px;
-            z-index: 1; /* Asegurar que esté detrás del contenido */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semi-transparente */
+            display: none;
+            z-index: 9999; /* Asegurar que esté por encima de todo */
+        }
+
+        #video {
+            width: 100%;
+            height: 100%;
         }
 
         /* Media queries para dispositivos móviles */
@@ -80,12 +89,6 @@
 
             .abrir-texto {
                 font-size: 14px; /* Reducir el tamaño del texto en dispositivos móviles */
-            }
-
-            #videoContainer {
-                display: flex;
-                justify-content: center;
-                align-items: center;
             }
         }
     </style>
