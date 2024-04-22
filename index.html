@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta de invitación</title>
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        /* Estilos para la tarjeta */
+        .tarjeta {
+            background: url('tarjeta.png') no-repeat center center; /* Centramos la imagen de fondo */
+            background-size: cover; /* Ajustamos el tamaño de la imagen */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            width: 80%; /* Ancho de la tarjeta */
+            max-width: 600px; /* Ancho máximo */
+            margin: 20px auto; /* Centrar la tarjeta */
+        }
+
+        /* Estilos para la carta */
+        .carta {
+            padding: 20px; /* Agregamos espacio interno para el contenido de la carta */
+            background-color: rgba(255, 255, 255, 0.7); /* Color de fondo semi-transparente */
+            border-radius: 10px; /* Hacemos los bordes redondeados */
+        }
+
+        /* Estilos para el sobre */
+        .sobre {
+            width: 100px; /* Ancho del sobre */
+            height: 70px; /* Altura del sobre */
+            background-color: #FFFFFF; /* Color del sobre */
+            border: 3px solid #FFD700; /* Borde del sobre */
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            margin: 20px auto; /* Centrar el sobre */
+            position: relative;
+            z-index: 2; /* Asegurar que esté delante del video */
+        }
+
+        .abrir-texto {
+            font-size: 18px; /* Tamaño del texto */
+            color: #8B4513;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Estilos para el video */
+        #videoContainer {
+            display: none; /* Ocultar el contenedor de video por defecto */
+            position: relative;
+            margin-top: 20px;
+            z-index: 1; /* Asegurar que esté detrás del contenido */
+        }
+
+        /* Media queries para dispositivos móviles */
+        @media (max-width: 768px) {
+            .tarjeta {
+                width: 90%;
+            }
+
+            .sobre {
+                width: 80px; /* Reducir el ancho del sobre en dispositivos móviles */
+                height: 56px; /* Reducir la altura del sobre en dispositivos móviles */
+            }
+
+            .abrir-texto {
+                font-size: 14px; /* Reducir el tamaño del texto en dispositivos móviles */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="tarjeta">
+        <div class="carta">
+            <!-- Contenido de la carta aquí -->
+            <h2>¡Tarjeta de invitación!</h2>
+        </div>
+        <div id="sobre" class="sobre" onclick="abrirTarjeta()">
+            <span class="abrir-texto">Abrir Tarjeta</span>
+        </div>
+        <div id="videoContainer">
+            <video id="video" controls autoplay>
+                <source src="Invitación Cumpleaños.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        function abrirTarjeta() {
+            document.getElementById("sobre").style.display = "none"; // Ocultar el sobre
+            document.getElementById("videoContainer").style.display = "block"; // Mostrar el contenedor de video
+            document.getElementById("video").play(); // Reproducir el video automáticamente al abrir la tarjeta
+        }
+    </script>
+</body>
+</html>
